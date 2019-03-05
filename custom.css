@@ -15,15 +15,15 @@ form {
   font-size: 20;
 }
 .num {
+  font-weight: bold;
   margin-right: 20px;
   color: ED458B;
-  font-weight: 700;
   font-size: 45px;
 }
 .guess {
   color: E6E7E8;
   font-size: 45px;
-  font-weight: 300;
+  font-weight: 100;
 }
 
 .header-div {

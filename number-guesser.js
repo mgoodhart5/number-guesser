@@ -16,6 +16,9 @@ var highOrLow = function() {
     $(".previousGuessWords").text("Your last guess was")
     $(".previousGuess").text(guess)
   } else if (guess == answerNum) {
+    $(".gameAlert").text("WINNER WINNER WINNER.")
+    $(".previousGuessWords").text("Your WINNING guess was")
+    $(".previousGuess").text(guess)
     window.alert("BOOM! YOU WIN!!")
   }
 };
