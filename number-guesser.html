@@ -1,21 +1,24 @@
 <html>
    <head>
-      <title>The jQuery Example</title>
+      <title>number guesser</title>
       <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
       <script src="jquery.js"></script>
       <script src="number-guesser.js"></script>
+      <link href='https://fonts.googleapis.com/css?family=Open Sans' rel='stylesheet'>
+      <link rel="stylesheet" type="text/css" href="./reset.css">
       <link rel="stylesheet" type="text/css" href="./custom.css">
    </head>
 
    <body>
-      <h1>Number Guesser</h1>
-      <form>
-        <input id="guessNum" type="text" name="guess" value="Enter your guess"><br>
-        <input id="submitGuess" type="submit" value="Submit" class="submit-button">
-        <input id="clearGuess" type="reset" value="Clear">
+      <div class="header-div"><h1 class="num">Number</h1><h1 class="guess">Guesser</h1></div>
+      <form class="guess-form">
+        <input id="guessNum" type="text" name="guess" placeholder="Enter your guess"><br>
+        <input id="submitGuessBtn" type="submit" value="Guess" class="submit-button">
+        <input id="clearGuessBtn" type="reset" value="Clear" disabled>
       </form>
-      <input id="clearGameBtn" type="button" onclick="alert('Game shall be Reset!')" value="Reset Game!">
-      <div class="gameAlert"></div>
-      <div class="previousGuess"></div>
+      <h2 class="previousGuessWords"></h2>
+      <h3 class="previousGuess"></h3>
+      <h3 class="gameAlert"></h3>
+      <input id="clearGameBtn" type="button" onclick="alert('Game is Resetting!')" value="Reset Game!" disabled>
    </body>
 </html>

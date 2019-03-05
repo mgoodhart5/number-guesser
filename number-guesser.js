@@ -9,9 +9,11 @@ var highOrLow = function() {
     window.alert("This needs to be a number between 1 & 100")
   } else if (guess > answerNum) {
     $(".gameAlert").text("Your guess is too high.")
+    $(".previousGuessWords").text("Your last guess was")
     $(".previousGuess").text(guess)
   } else if (guess < answerNum) {
     $(".gameAlert").text("Your guess is too low.")
+    $(".previousGuessWords").text("Your last guess was")
     $(".previousGuess").text(guess)
   } else if (guess == answerNum) {
     window.alert("BOOM! YOU WIN!!")
@@ -19,12 +21,13 @@ var highOrLow = function() {
 };
 
 $(document).ready(function() {
-  $("#submitGuess").click(function(guess) {
-    $("#clearGameBtn").show();
+  $("#submitGuessBtn").click(function(guess) {
+    $("#clearGameBtn").prop("disabled", false);
+    $("#clearGuessBtn").prop("disabled", false);
     event.preventDefault();
     highOrLow();
   });
   $("#clearGameBtn").click(function() {
-    location.reload()
+    location.reload(true)
   })
 });
