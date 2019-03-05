@@ -25,8 +25,14 @@ var highOrLow = function() {
 
 $(document).ready(function() {
   $("#submitGuessBtn").click(function(guess) {
+    $("#guessNum").keypress(function() {
+      $("#clearGuessBtn").prop("disabled", false);
+    })
+    $("#clearGuessBtn").click(function(){
+      $("#guessNum").val("");
+      $("#clearGuessBtn").prop("disabled", true);
+    })
     $("#clearGameBtn").prop("disabled", false);
-    $("#clearGuessBtn").prop("disabled", false);
     event.preventDefault();
     highOrLow();
   });
