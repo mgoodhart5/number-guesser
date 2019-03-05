@@ -11,9 +11,16 @@
 
    <body>
       <div class="header-div"><h1 class="num">Number</h1><h1 class="guess">Guesser</h1></div>
+      <form class="range-form">
+        <p>You must enter a <strong>range</strong> to begin!</p>
+        <input id="minRangeNum" type="text" name="min" placeholder="Enter minimum number">
+        <input id="maxRangeNum" type="text" name="max" placeholder="Enter maximum number"><br>
+        <input id="submitRangeBtn" type="submit" value="Submit Range">
+        <h3 class="rangeAlert"></h3>
+      </form><br>
       <form class="guess-form">
         <input id="guessNum" type="text" name="guess" placeholder="Enter your guess"><br>
-        <input id="submitGuessBtn" type="submit" value="Guess" class="submit-button">
+        <input id="submitGuessBtn" type="submit" value="Guess" class="submit-button" disabled>
         <input id="clearGuessBtn" type="reset" value="Clear" disabled>
       </form>
       <h2 class="previousGuessWords"></h2>

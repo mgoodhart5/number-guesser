@@ -5,6 +5,26 @@ body {
 form {
   display: inline-block;
 }
+p {
+  margin: 10px;
+  padding: 10px;
+}
+#minRangeNum {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 2px solid #ED458B;
+  border-radius: 15px;
+  font-size: 15;
+}
+#maxRangeNum {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 15px;
+  border: 2px solid #ED458B;
+  border-radius: 15px;
+  font-size: 15;
+}
 #guessNum {
   margin-bottom: 20px;
   margin-top: 20px;
@@ -41,6 +61,12 @@ form {
   padding: 10px;
 }
 .previousGuessWords {
+  font-size: 30px;
+  margin: 10px;
+  padding-top: 25px;
+}
+.rangeAlert {
+  color: ED458B;
   font-size: 30px;
   margin: 10px;
   padding-top: 25px;
@@ -98,7 +124,30 @@ form {
   background-color: 929497;
   color: #FFFFFF;
 }
+#submitGuessBtn:disabled {
+  background-color: D0D2D3;
+  color: #FFFFFF;
+}
 #submitGuessBtn:hover {
   background-color: ED458B;
+  color: #FFFFFF;
+}
+#submitRangeBtn {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border-radius: 15px;
+  font-size: 30;
+  margin: 15px;
+  background-color: 929497;
+  color: #FFFFFF;
+}
+#submitRangeBtn:hover {
+  background-color: ED458B;
+  color: #FFFFFF;
+}
+#submitRangeBtn:disabled {
+  background-color: D0D2D3;
   color: #FFFFFF;
 }
