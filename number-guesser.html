@@ -1,0 +1,21 @@
+<html>
+   <head>
+      <title>The jQuery Example</title>
+      <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="jquery.js"></script>
+      <script src="number-guesser.js"></script>
+      <link rel="stylesheet" type="text/css" href="./custom.css">
+   </head>
+
+   <body>
+      <h1>Number Guesser</h1>
+      <form>
+        <input id="guessNum" type="text" name="guess" value="Enter your guess"><br>
+        <input id="submitGuess" type="submit" value="Submit" class="submit-button">
+        <input id="clearGuess" type="reset" value="Clear">
+      </form>
+      <input id="clearGameBtn" type="button" onclick="alert('Game shall be Reset!')" value="Reset Game!">
+      <div class="gameAlert"></div>
+      <div class="previousGuess"></div>
+   </body>
+</html>
