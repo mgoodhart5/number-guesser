@@ -1,6 +1,4 @@
-// pick random game answer 1-100
-// function answerNum() = Math.floor((Math.random() * 100) + 1);
-// trying new input stuff
+var compNum
 
 function answerNum() {
   var firstMin = $("#minRangeNum").val();
@@ -18,10 +16,9 @@ function answerNum() {
   return number
 };
 
-
-function highOrLow(compNum) {
+function highOrLow() {
   var guess = $("#guessNum").val();
-  if (isNaN(guess) || guess === "" || guess > 100) {
+  if (isNaN(guess) || guess === "" || guess > 555) {
     window.alert("This needs to be a number between 1 & 100")
   } else if (guess > compNum) {
     $(".gameAlert").text("Your guess is too high.")
@@ -36,13 +33,24 @@ function highOrLow(compNum) {
     $(".previousGuessWords").text("Your WINNING guess was")
     $(".previousGuess").text(guess)
     window.alert("BOOM! YOU WIN!!")
+    winnerPlusTen();
   }
 };
+
+function winnerPlusTen() {
+  var secondMin = parseInt($("#minRangeNum").val()) - 10;
+  var secondMax = parseInt($("#maxRangeNum").val()) + 10;
+  $("#minRangeNum").val(secondMin.toString())
+  $("#maxRangeNum").val(secondMax.toString())
+  compNum = Math.floor(Math.random() * (secondMax - secondMin + 1 ) ) + secondMin;
+  $(".rangeAlert").text(`Your range is ${secondMin} - ${secondMax}`)
+  var secondGuess = $("#guessNum").val();
+}
 
 $(document).ready(function() {
   $("#submitRangeBtn").click(function(){
     event.preventDefault();
-    const compNum = answerNum()
+    compNum = answerNum();
     $("#submitRangeBtn").prop("disabled", true);
     $("#submitGuessBtn").prop("disabled", false);
     $("p").hide();
@@ -56,7 +64,7 @@ $(document).ready(function() {
     })
     $("#clearGameBtn").prop("disabled", false);
     event.preventDefault();
-    highOrLow(compNum);
+    highOrLow();
   });
 });
   $("#clearGameBtn").click(function() {
