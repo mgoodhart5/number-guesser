@@ -1,27 +1,25 @@
-// pick random game answer 1-100
-// function answerNum() = Math.floor((Math.random() * 100) + 1);
-// trying new input stuff
+var compNum
 
 function answerNum() {
-  var firstMin = $("#minRangeNum").val();
-  var firstMax = $("#maxRangeNum").val();
-  var min = parseInt(firstMin);
-  var max = parseInt(firstMax);
+  let firstMin = $("#minRangeNum").val();
+  let firstMax = $("#maxRangeNum").val();
+  let min = parseInt(firstMin);
+  let max = parseInt(firstMax);
+  let number;
   if(isNaN(min) || isNaN(max)) {
     window.alert("These need to numbers")
   } else if (min === "" || max === "") {
     window.alert("These need to numbers")
   } else {
     $(".rangeAlert").text(`Your range is ${min} - ${max}`)
-    var number = Math.floor(Math.random() * (max - min + 1 ) ) + min;
+    number = Math.floor(Math.random() * (max - min + 1 ) ) + min;
   }
   return number
 };
 
-
-function highOrLow(compNum) {
-  var guess = $("#guessNum").val();
-  if (isNaN(guess) || guess === "" || guess > 100) {
+function highOrLow() {
+  let guess = $("#guessNum").val();
+  if (isNaN(guess) || guess === "" || guess > 555) {
     window.alert("This needs to be a number between 1 & 100")
   } else if (guess > compNum) {
     $(".gameAlert").text("Your guess is too high.")
@@ -36,13 +34,24 @@ function highOrLow(compNum) {
     $(".previousGuessWords").text("Your WINNING guess was")
     $(".previousGuess").text(guess)
     window.alert("BOOM! YOU WIN!!")
+    winnerPlusTen();
   }
 };
+
+function winnerPlusTen() {
+  let secondMin = parseInt($("#minRangeNum").val()) - 10;
+  let secondMax = parseInt($("#maxRangeNum").val()) + 10;
+  $("#minRangeNum").val(secondMin.toString())
+  $("#maxRangeNum").val(secondMax.toString())
+  compNum = Math.floor(Math.random() * (secondMax - secondMin + 1 ) ) + secondMin;
+  $(".rangeAlert").text(`Your range is ${secondMin} - ${secondMax}`)
+  let secondGuess = $("#guessNum").val();
+}
 
 $(document).ready(function() {
   $("#submitRangeBtn").click(function(){
     event.preventDefault();
-    const compNum = answerNum()
+    compNum = answerNum();
     $("#submitRangeBtn").prop("disabled", true);
     $("#submitGuessBtn").prop("disabled", false);
     $("p").hide();
@@ -56,7 +65,7 @@ $(document).ready(function() {
     })
     $("#clearGameBtn").prop("disabled", false);
     event.preventDefault();
-    highOrLow(compNum);
+    highOrLow();
   });
 });
   $("#clearGameBtn").click(function() {
