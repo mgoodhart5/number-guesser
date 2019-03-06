@@ -1,23 +1,24 @@
 var compNum
 
 function answerNum() {
-  var firstMin = $("#minRangeNum").val();
-  var firstMax = $("#maxRangeNum").val();
-  var min = parseInt(firstMin);
-  var max = parseInt(firstMax);
+  let firstMin = $("#minRangeNum").val();
+  let firstMax = $("#maxRangeNum").val();
+  let min = parseInt(firstMin);
+  let max = parseInt(firstMax);
+  let number;
   if(isNaN(min) || isNaN(max)) {
     window.alert("These need to numbers")
   } else if (min === "" || max === "") {
     window.alert("These need to numbers")
   } else {
     $(".rangeAlert").text(`Your range is ${min} - ${max}`)
-    var number = Math.floor(Math.random() * (max - min + 1 ) ) + min;
+    number = Math.floor(Math.random() * (max - min + 1 ) ) + min;
   }
   return number
 };
 
 function highOrLow() {
-  var guess = $("#guessNum").val();
+  let guess = $("#guessNum").val();
   if (isNaN(guess) || guess === "" || guess > 555) {
     window.alert("This needs to be a number between 1 & 100")
   } else if (guess > compNum) {
@@ -38,13 +39,13 @@ function highOrLow() {
 };
 
 function winnerPlusTen() {
-  var secondMin = parseInt($("#minRangeNum").val()) - 10;
-  var secondMax = parseInt($("#maxRangeNum").val()) + 10;
+  let secondMin = parseInt($("#minRangeNum").val()) - 10;
+  let secondMax = parseInt($("#maxRangeNum").val()) + 10;
   $("#minRangeNum").val(secondMin.toString())
   $("#maxRangeNum").val(secondMax.toString())
   compNum = Math.floor(Math.random() * (secondMax - secondMin + 1 ) ) + secondMin;
   $(".rangeAlert").text(`Your range is ${secondMin} - ${secondMax}`)
-  var secondGuess = $("#guessNum").val();
+  let secondGuess = $("#guessNum").val();
 }
 
 $(document).ready(function() {
